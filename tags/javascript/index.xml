@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on Hacking Devin Torres</title>
+    <link>https://devinus.io/tags/javascript/</link>
+    <description>Recent content in Javascript on Hacking Devin Torres</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 25 Jun 2010 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://devinus.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Natural Sorting Comparator for JavaScript&#39;s Array.prototype.sort</title>
+      <link>https://devinus.io/a-natural-sorting-comparator-for-javascripts-array.prototype.sort/</link>
+      <pubDate>Fri, 25 Jun 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://devinus.io/a-natural-sorting-comparator-for-javascripts-array.prototype.sort/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>Turn CSS Rules Into Inline Style Attributes Using jQuery</title>
+      <link>https://devinus.io/turn-css-rules-into-inline-style-attributes-using-jquery/</link>
+      <pubDate>Wed, 26 May 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://devinus.io/turn-css-rules-into-inline-style-attributes-using-jquery/</guid>
+      <description>Gmail doesn&amp;rsquo;t support stylesheets or the style tag, but they allow inline style attributes. This snippet allows the browser to use it&amp;rsquo;s native facilities for building an HTML email for e.g. marketing campaigns by allowing you to write a document using linked stylesheets or inline style tags in the document. This could either be run within the context of the HTML email template itself or from a parent window that the HTML email is being built within.</description>
+    </item>
+    
+    <item>
+      <title>A JavaScript LRU (Least-Recently-Used) Cache</title>
+      <link>https://devinus.io/a-javascript-lru-least-recently-used-cache/</link>
+      <pubDate>Fri, 21 May 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://devinus.io/a-javascript-lru-least-recently-used-cache/</guid>
+      <description> </description>
+    </item>
+    
+    <item>
+      <title>JavaScript: The Fastest Dynamic Language?</title>
+      <link>https://devinus.io/javascript-the-fastest-dynamic-language/</link>
+      <pubDate>Wed, 10 Jun 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://devinus.io/javascript-the-fastest-dynamic-language/</guid>
+      <description>I remember programming for the web in the late 90&amp;rsquo;s. JavaScript engines were a lot worse then than they are now, and it was the last programming skill a programmer mentioned. Many programmers didn&amp;rsquo;t even regard the language as a real language, much the same way many of us today scoff when somebody mentions HTML as a programming skill. What many didn&amp;rsquo;t realize, though, is that JavaScript has always been a beautiful language when used correctly.</description>
+    </item>
+    
+  </channel>
+</rss>
