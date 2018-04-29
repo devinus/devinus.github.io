@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Languages on Hacking Devin Torres</title>
-    <link>https://devinus.io/tags/languages/</link>
+    <link>https://devinus.io/categories/languages/</link>
     <description>Recent content in Languages on Hacking Devin Torres</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 11 Jun 2013 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://devinus.io/tags/languages/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://devinus.io/categories/languages/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

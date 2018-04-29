@@ -9,5 +9,14 @@
 	<atom:link href="https://devinus.io/authors/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Devinus</title>
+      <link>https://devinus.io/authors/devinus/</link>
+      <pubDate>Tue, 11 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://devinus.io/authors/devinus/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

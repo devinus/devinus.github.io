@@ -9,5 +9,14 @@
 	<atom:link href="https://devinus.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Languages</title>
+      <link>https://devinus.io/categories/languages/</link>
+      <pubDate>Tue, 11 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://devinus.io/categories/languages/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
