@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'>
-
-<head>
+<html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='Whenever there&rsquo;s a discussion about Elixir, it soon becomes apparent that there&rsquo;s still a lot of confusion regarding it&rsquo;s purpose. Some developers have it in their heads that Elixir is merely some crazy new syntax that ex-Rubyists are using to avoid writing Erlang. Well, I&rsquo;m going to try to dispell some of the myths and misconceptions with this blog post.
@@ -13,20 +11,20 @@ It&rsquo;s not about syntax, stupid silly! In The Excitement of Elixir, I respon
 It&rsquo;s not about syntax, stupid silly! In The Excitement of Elixir, I responded to two of the most well-known criticisms of Erlang from real-world developers now that we have Elixir for comparison.'>
 <meta property='og:url' content='https://devinus.io/elixir-its-not-about-syntax/'>
 <meta property='og:site_name' content='Hacking Devin Torres'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/178967e940e9793656c0934ddc60db56?s=256'><meta property='article:author' content='https://facebook.com/devin.torres'><meta property='article:publisher' content='727615181'><meta property='article:section' content='Post'><meta property='article:tag' content='elixir'><meta property='article:tag' content='erlang'><meta property='article:published_time' content='2013-06-11T00:00:00Z'/><meta property='article:modified_time' content='2013-06-11T00:00:00Z'/><meta property='fb:app_id' content='366539003801905'><meta property='fb:admins' content='727615181'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@devinus'><meta name='twitter:creator' content='@devinus'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/178967e940e9793656c0934ddc60db56?s=256'><meta property='article:author' content='https://facebook.com/devin.torres'><meta property='article:publisher' content='727615181'><meta property='article:section' content='post'><meta property='article:tag' content='elixir'><meta property='article:tag' content='erlang'><meta property='article:published_time' content='2013-06-11T00:00:00Z'/><meta property='article:modified_time' content='2013-06-11T00:00:00Z'/><meta property='fb:app_id' content='366539003801905'><meta property='fb:admins' content='727615181'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@devinus'><meta name='twitter:creator' content='@devinus'>
 
-<meta name="generator" content="Hugo 0.45.1" />
+<meta name="generator" content="Hugo 0.55.5" />
 
   <title>Elixir: It&#39;s Not About Syntax ~ Devin Alexander Torres</title>
   <link rel='canonical' href='https://devinus.io/elixir-its-not-about-syntax/'>
   
   
   <link rel='icon' href='/favicon.ico'>
-<link rel='stylesheet' href='/assets/css/main.809149b6.css'><link rel='stylesheet' href='/css/custom.css'><style>
+<link rel='stylesheet' href='/assets/css/main.dd2efce5.css'><link rel='stylesheet' href='/css/custom.css'><style>
 :root{--color-accent:#ffcd00;}
 </style>
 
-<script>
+<script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -40,17 +38,9 @@ if (!doNotTrack) {
   
 
 </head>
-
-
 <body class='page type-post'>
 
-  <div class='site'>
-
-    <a class='screen-reader-text' href='#content'>Skip to Content</a>
-
-    <div class='main'>
-
-      <nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='site'><a class='screen-reader-text' href='#content'>Skip to Content</a><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
   <div class='container'>
     
     <ul><li class='item'>
@@ -61,7 +51,9 @@ if (!doNotTrack) {
         <a href='https://cdn.rawgit.com/devinus/resume/v1.0.0/DevinAlexanderTorres.pdf'>Resume</a>
       </li></ul>
   </div>
-</nav>
+</nav><div class='header-widgets'>
+        <div class='container'></div>
+      </div>
 
       <header id='header' class='header site-header'>
         <div class='container sep-after'>
@@ -81,8 +73,7 @@ if (!doNotTrack) {
       
 
     </div>
-    
-<div class='entry-meta'>
+    <div class='entry-meta'>
   <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
@@ -131,17 +122,10 @@ if (!doNotTrack) {
 
 <p>In <a href="http://devintorr.es/blog/2013/01/22/the-excitement-of-elixir/"><em>The Excitement of Elixir</em></a>, I responded to two of the most well-known criticisms of Erlang from real-world developers now that we have Elixir for comparison. I failed to drive home what Elixir truly represented. Elixir is not &ldquo;just about syntax,&rdquo; nor is that the only thing Elixir stands for. If Elixir&rsquo;s goals were a pie chart, a friendlier syntax would represent a sliver of what makes Elixir a worthwhile investment.</p>
 
-
 <figure>
-    
-        <img src="http://i.imgur.com/eEehUnG.png" />
-    
-    
-    <figcaption>
-        <h4>Piecharts</h4>
-        
-    </figcaption>
-    
+    <img src="http://i.imgur.com/eEehUnG.png"/> <figcaption>
+            <h4>Piecharts</h4>
+        </figcaption>
 </figure>
 
 
@@ -149,17 +133,10 @@ if (!doNotTrack) {
 
 <p>Let&rsquo;s nip this myth the bud right away: Performance of Elixir code should <strong>match</strong> or <strong>beat</strong> the performance of equivalent Erlang code. If you find that in your use case it doesn&rsquo;t, you should immediately file it as a bug! Elixir, while incredibly expressive, still compiles to what the equivalent Erlang code would be. It&rsquo;s still compiling to <a href="http://joearms.github.io/2013/05/31/a-week-with-elixir.html">EVM</a> bytecode at the end of the day. An Elixir function call is an Erlang function call&ndash;there is no overhead! Elixir&rsquo;s powerful <a href="http://en.wikipedia.org/wiki/Metaprogramming">metaprogramming</a> capabilities don&rsquo;t come from e.g. <a href="http://en.wikipedia.org/wiki/Dynamic_dispatch">runtime dispatching</a>, but the fantastically powerful compiler. All this magic happens at compilation time, before your code even has to run. And this is the part that may blow your minds: Elixir will <strong>beat</strong> the performance of Erlang in some cases. We&rsquo;ll get to that later, though.</p>
 
-
 <figure>
-    
-        <img src="http://i.imgur.com/5XgBpBr.gif" />
-    
-    
-    <figcaption>
-        <h4>Mind=Blown</h4>
-        
-    </figcaption>
-    
+    <img src="http://i.imgur.com/5XgBpBr.gif"/> <figcaption>
+            <h4>Mind=Blown</h4>
+        </figcaption>
 </figure>
 
 
@@ -208,17 +185,10 @@ iex&gt; Enum.filter list, fn (thing) -&gt; match?({:a, _}, thing) end
 
 <p>Yeah, we get it. Macros shouldn&rsquo;t be abused. That&rsquo;s not a fault with the language, but something the user has to strike a balance with themselves. If you <strong>ever</strong> find <a href="https://twitter.com/josevalim">José</a> (the <a href="http://en.wikipedia.org/wiki/Benevolent_Dictator_for_Life">BDFL</a> of Elixir) ever advocating the use of a macro when a simple function would do, I&rsquo;d eat my own shorts.</p>
 
-
 <figure>
-    
-        <img src="http://i.imgur.com/6A8kxcx.png" />
-    
-    
-    <figcaption>
-        <h4>Spiderman on Responsibility</h4>
-        
-    </figcaption>
-    
+    <img src="http://i.imgur.com/6A8kxcx.png"/> <figcaption>
+            <h4>Spiderman on Responsibility</h4>
+        </figcaption>
 </figure>
 
 
@@ -246,17 +216,10 @@ end
 
 <p>We created a module that uses <a href="https://github.com/myfreeweb/httpotion">HTTPotion</a> to download the public domain <a href="http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types">mime.types</a> database from the Apache project, parses it, and creates a polymorphic function called <code>is_valid?</code>. This is exactly how <code>String.Unicode</code> is implemented in Elixir: it reads from an in-repo copy of the <a href="http://www.unicode.org/versions/Unicode6.2.0/">Unicode 6.2.0 database</a> and statically compiles functions based on that database into the module. Extrapolate this power to anything, really. The public domain <a href="http://www.iana.org/time-zones">tzdata</a> database for a timezone module, a <a href="https://dspl.googlecode.com/hg/datasets/google/canonical/currencies.csv">currency database</a> module, SQL query pre-generation, etc. This expressivity makes writing faster code easier, with less <a href="http://en.wikipedia.org/wiki/Source_lines_of_code">LOC</a>.</p>
 
-
 <figure>
-    
-        <img src="http://i.imgur.com/tXIloPl.png" />
-    
-    
-    <figcaption>
-        <h4>Slam Dunk</h4>
-        
-    </figcaption>
-    
+    <img src="http://i.imgur.com/tXIloPl.png"/> <figcaption>
+            <h4>Slam Dunk</h4>
+        </figcaption>
 </figure>
 
 
@@ -311,17 +274,10 @@ iex&gt; Exn.encode %r{.*}
 
 <p>The great thing about the Elixir standard library is that with each release it can provide features that Erlang developers clamor for everyday. We have Erlangers, Clojurists, Haskellers, Rubyists, and Pythonistas trying to incorporate useful features into Elixir every day. Elixir isn&rsquo;t afraid of introducing functionality that improves the lives of Elixir developers, and everything is on the table: new data structures, real Unicode support, anything.</p>
 
-
 <figure>
-    
-        <img src="http://i.imgur.com/HBrTD8G.png" />
-    
-    
-    <figcaption>
-        <h4>Bruce Lee</h4>
-        
-    </figcaption>
-    
+    <img src="http://i.imgur.com/HBrTD8G.png"/> <figcaption>
+            <h4>Bruce Lee</h4>
+        </figcaption>
 </figure>
 
 
@@ -389,17 +345,10 @@ mix local.uninstall # Uninstall local tasks
 mix new             # Creates a new Elixir project
 mix run             # Run the given expression
 mix test            # Run a project&#39;s tests</code></pre></div>
-
 <figure>
-    
-        <img src="http://i.imgur.com/ESJVaD4.png" />
-    
-    
-    <figcaption>
-        <h4>Smug Alert</h4>
-        
-    </figcaption>
-    
+    <img src="http://i.imgur.com/ESJVaD4.png"/> <figcaption>
+            <h4>Smug Alert</h4>
+        </figcaption>
 </figure>
 
 
@@ -411,24 +360,19 @@ mix test            # Run a project&#39;s tests</code></pre></div>
 
   
 <footer class='entry-footer'>
-  <div class='container sep-before'>
-  <div class='categories'>
-  <span class='taxonomy-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
   
 </svg>
-</span>
-  <span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/languages'>Languages</a></div>
-<div class='tags'>
-  <span class='taxonomy-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+<span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/languages/'>languages</a></div>
+<div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-</span>
-  <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/elixir'>Elixir</a>, <a class='tag' href='/tags/erlang'>Erlang</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/elixir/'>elixir</a>, <a class='tag' href='/tags/erlang/'>erlang</a></div>
 
   </div>
 </footer>
@@ -577,7 +521,7 @@ mix test            # Run a project&#39;s tests</code></pre></div>
       </li></ul>
   </nav>
 </section><div class='copyright'>
-  <p> &copy; 1987-2018 Devin Alexander Torres </p>
+  <p> &copy; 1987-2019 Devin Alexander Torres </p>
 </div>
 
         </div>
@@ -586,9 +530,7 @@ mix test            # Run a project&#39;s tests</code></pre></div>
     </div>
   </div><script>window.__public_path__='\/assets\/js\/'</script>
 
-<script src='/assets/js/main.68cb493a.js'></script><script src='/js/custom.js'></script>
-
-
+<script src='/assets/js/main.00df04b7.js'></script><script src='/js/custom.js'></script>
 
 </body>
 

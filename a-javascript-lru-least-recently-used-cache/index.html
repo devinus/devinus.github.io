@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang='en'>
-
-<head>
+<html lang='en'><head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content=' '>
@@ -11,20 +9,20 @@
 <meta property='og:description' content=' '>
 <meta property='og:url' content='https://devinus.io/a-javascript-lru-least-recently-used-cache/'>
 <meta property='og:site_name' content='Hacking Devin Torres'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/178967e940e9793656c0934ddc60db56?s=256'><meta property='article:author' content='https://facebook.com/devin.torres'><meta property='article:publisher' content='727615181'><meta property='article:section' content='Post'><meta property='article:tag' content='javascript'><meta property='article:published_time' content='2010-05-21T00:00:00Z'/><meta property='article:modified_time' content='2010-05-21T00:00:00Z'/><meta property='fb:app_id' content='366539003801905'><meta property='fb:admins' content='727615181'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@devinus'><meta name='twitter:creator' content='@devinus'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/178967e940e9793656c0934ddc60db56?s=256'><meta property='article:author' content='https://facebook.com/devin.torres'><meta property='article:publisher' content='727615181'><meta property='article:section' content='post'><meta property='article:tag' content='javascript'><meta property='article:published_time' content='2010-05-21T00:00:00Z'/><meta property='article:modified_time' content='2010-05-21T00:00:00Z'/><meta property='fb:app_id' content='366539003801905'><meta property='fb:admins' content='727615181'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@devinus'><meta name='twitter:creator' content='@devinus'>
 
-<meta name="generator" content="Hugo 0.45.1" />
+<meta name="generator" content="Hugo 0.55.5" />
 
   <title>A JavaScript LRU (Least-Recently-Used) Cache ~ Devin Alexander Torres</title>
   <link rel='canonical' href='https://devinus.io/a-javascript-lru-least-recently-used-cache/'>
   
   
   <link rel='icon' href='/favicon.ico'>
-<link rel='stylesheet' href='/assets/css/main.809149b6.css'><link rel='stylesheet' href='/css/custom.css'><style>
+<link rel='stylesheet' href='/assets/css/main.dd2efce5.css'><link rel='stylesheet' href='/css/custom.css'><style>
 :root{--color-accent:#ffcd00;}
 </style>
 
-<script>
+<script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
 	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -38,17 +36,9 @@ if (!doNotTrack) {
   
 
 </head>
-
-
 <body class='page type-post'>
 
-  <div class='site'>
-
-    <a class='screen-reader-text' href='#content'>Skip to Content</a>
-
-    <div class='main'>
-
-      <nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
+  <div class='site'><a class='screen-reader-text' href='#content'>Skip to Content</a><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
   <div class='container'>
     
     <ul><li class='item'>
@@ -59,7 +49,9 @@ if (!doNotTrack) {
         <a href='https://cdn.rawgit.com/devinus/resume/v1.0.0/DevinAlexanderTorres.pdf'>Resume</a>
       </li></ul>
   </div>
-</nav>
+</nav><div class='header-widgets'>
+        <div class='container'></div>
+      </div>
 
       <header id='header' class='header site-header'>
         <div class='container sep-after'>
@@ -79,8 +71,7 @@ if (!doNotTrack) {
       
 
     </div>
-    
-<div class='entry-meta'>
+    <div class='entry-meta'>
   <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
@@ -121,22 +112,19 @@ if (!doNotTrack) {
   
 
   <div class='container entry-content'>
-  <script src="//gist.github.com/devinus/409353.js"></script>
+  <script type="application/javascript" src="//gist.github.com/devinus/409353.js"></script>
 
 </div>
 
   
 <footer class='entry-footer'>
-  <div class='container sep-before'>
-  <div class='tags'>
-  <span class='taxonomy-icon'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  <div class='container sep-before'><div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
   
   <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
   <line x1="7" y1="7" x2="7" y2="7"/>
   
 </svg>
-</span>
-  <span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/javascript'>Javascript</a></div>
+<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/javascript/'>javascript</a></div>
 
   </div>
 </footer>
@@ -295,7 +283,7 @@ if (!doNotTrack) {
       </li></ul>
   </nav>
 </section><div class='copyright'>
-  <p> &copy; 1987-2018 Devin Alexander Torres </p>
+  <p> &copy; 1987-2019 Devin Alexander Torres </p>
 </div>
 
         </div>
@@ -304,9 +292,7 @@ if (!doNotTrack) {
     </div>
   </div><script>window.__public_path__='\/assets\/js\/'</script>
 
-<script src='/assets/js/main.68cb493a.js'></script><script src='/js/custom.js'></script>
-
-
+<script src='/assets/js/main.00df04b7.js'></script><script src='/js/custom.js'></script>
 
 </body>
 
