@@ -1,332 +1,102 @@
-<!DOCTYPE html>
-<html lang='en'><head>
-  <meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='Whenever there&rsquo;s a discussion about Elixir, it soon becomes apparent that there&rsquo;s still a lot of confusion regarding it&rsquo;s purpose. Some developers have it in their heads that Elixir is merely some crazy new syntax that ex-Rubyists are using to avoid writing Erlang. Well, I&rsquo;m going to try to dispell some of the myths and misconceptions with this blog post.
-It&rsquo;s not about syntax, stupid silly! In The Excitement of Elixir, I responded to two of the most well-known criticisms of Erlang from real-world developers now that we have Elixir for comparison.'>
-<meta name='theme-color' content='#ffcd00'>
-
-<meta property='og:title' content='Elixir: It&#39;s Not About Syntax ~ Devin Alexander Torres'>
-<meta property='og:description' content='Whenever there&rsquo;s a discussion about Elixir, it soon becomes apparent that there&rsquo;s still a lot of confusion regarding it&rsquo;s purpose. Some developers have it in their heads that Elixir is merely some crazy new syntax that ex-Rubyists are using to avoid writing Erlang. Well, I&rsquo;m going to try to dispell some of the myths and misconceptions with this blog post.
-It&rsquo;s not about syntax, stupid silly! In The Excitement of Elixir, I responded to two of the most well-known criticisms of Erlang from real-world developers now that we have Elixir for comparison.'>
-<meta property='og:url' content='https://devinus.io/elixir-its-not-about-syntax/'>
-<meta property='og:site_name' content='Hacking Devin Torres'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/178967e940e9793656c0934ddc60db56?s=256'><meta property='article:author' content='https://facebook.com/devin.torres'><meta property='article:publisher' content='727615181'><meta property='article:section' content='post'><meta property='article:tag' content='elixir'><meta property='article:tag' content='erlang'><meta property='article:published_time' content='2013-06-11T00:00:00Z'/><meta property='article:modified_time' content='2013-06-11T00:00:00Z'/><meta property='fb:app_id' content='366539003801905'><meta property='fb:admins' content='727615181'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@devinus'><meta name='twitter:creator' content='@devinus'>
-
-<meta name="generator" content="Hugo 0.55.5" />
-
-  <title>Elixir: It&#39;s Not About Syntax ~ Devin Alexander Torres</title>
-  <link rel='canonical' href='https://devinus.io/elixir-its-not-about-syntax/'>
-  
-  
-  <link rel='icon' href='/favicon.ico'>
-<link rel='stylesheet' href='/assets/css/main.dd2efce5.css'><link rel='stylesheet' href='/css/custom.css'><style>
-:root{--color-accent:#ffcd00;}
-</style>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-107671549-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-  
-
-</head>
-<body class='page type-post'>
-
-  <div class='site'><a class='screen-reader-text' href='#content'>Skip to Content</a><div class='main'><nav id='main-menu' class='menu main-menu' aria-label='Main Menu'>
-  <div class='container'>
-    
-    <ul><li class='item'>
-        <a href='/'>Home</a>
-      </li><li class='item'>
-        <a href='/post'>Posts</a>
-      </li><li class='item'>
-        <a href='https://rawcdn.githack.com/devinus/resume/a014d453a3090d84a749010cd41410fe7a6facb4/DevinAlexanderTorres.pdf'>Resume</a>
-      </li></ul>
-  </div>
-</nav><div class='header-widgets'>
-        <div class='container'></div>
-      </div>
-
-      <header id='header' class='header site-header'>
-        <div class='container sep-after'>
-          <div class='header-info'><p class='site-title title'>Hacking Devin Torres</p><p class='desc site-desc'>Pseudorandom thoughts from a deterministic mind.</p>
-          </div>
-        </div>
-      </header>
-
-      <main id='content'>
-
-
-<article lang='en' class='entry'>
-  <header class='header entry-header'>
-  <div class='container sep-after'>
-    <div class='header-info'>
-      <h1 class='title'>Elixir: It&#39;s Not About Syntax</h1>
-      
-
-    </div>
-    <div class='entry-meta'>
-  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-  <line x1="16" y1="2" x2="16" y2="6"/>
-  <line x1="8" y1="2" x2="8" y2="6"/>
-  <line x1="3" y1="10" x2="21" y2="10"/>
-  
-</svg>
-<span class='screen-reader-text'>Posted on </span>
-  <time class='entry-date' datetime='2013-06-11T00:00:00Z'>2013, Jun 11</time>
-</span>
-
-  <span class='byline'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
-  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
-  
-</svg>
-<span class='screen-reader-text'> by </span><a href='/authors/devinus'>Devin Alexander Torres</a></span>
-  
-<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <circle cx="12" cy="12" r="10"/>
-  <polyline points="12 6 12 12 15 15"/>
-  
-</svg>
-9 mins read
-</span>
-
-
-</div>
-
-
-  </div>
-</header>
-
-  
-  
-
-  <div class='container entry-content'>
-  
-
-<p>Whenever there&rsquo;s <a href="https://news.ycombinator.com/item?id=5099861">a discussion</a> about Elixir, it soon becomes apparent that there&rsquo;s still a lot of confusion regarding it&rsquo;s purpose. Some developers have it in their heads that Elixir is merely some crazy new syntax that ex-Rubyists are using to avoid writing Erlang. Well, I&rsquo;m going to try to dispell some of the myths and misconceptions with this blog post.</p>
-
-<h2 id="it-s-not-about-syntax-stupid-silly">It&rsquo;s not about syntax, <del>stupid</del> silly!</h2>
-
-<p>In <a href="http://devintorr.es/blog/2013/01/22/the-excitement-of-elixir/"><em>The Excitement of Elixir</em></a>, I responded to two of the most well-known criticisms of Erlang from real-world developers now that we have Elixir for comparison. I failed to drive home what Elixir truly represented. Elixir is not &ldquo;just about syntax,&rdquo; nor is that the only thing Elixir stands for. If Elixir&rsquo;s goals were a pie chart, a friendlier syntax would represent a sliver of what makes Elixir a worthwhile investment.</p>
-
-<figure>
-    <img src="http://i.imgur.com/eEehUnG.png"/> <figcaption>
-            <h4>Piecharts</h4>
-        </figcaption>
-</figure>
-
-
-<h3 id="performance">Performance</h3>
-
-<p>Let&rsquo;s nip this myth the bud right away: Performance of Elixir code should <strong>match</strong> or <strong>beat</strong> the performance of equivalent Erlang code. If you find that in your use case it doesn&rsquo;t, you should immediately file it as a bug! Elixir, while incredibly expressive, still compiles to what the equivalent Erlang code would be. It&rsquo;s still compiling to <a href="http://joearms.github.io/2013/05/31/a-week-with-elixir.html">EVM</a> bytecode at the end of the day. An Elixir function call is an Erlang function call&ndash;there is no overhead! Elixir&rsquo;s powerful <a href="http://en.wikipedia.org/wiki/Metaprogramming">metaprogramming</a> capabilities don&rsquo;t come from e.g. <a href="http://en.wikipedia.org/wiki/Dynamic_dispatch">runtime dispatching</a>, but the fantastically powerful compiler. All this magic happens at compilation time, before your code even has to run. And this is the part that may blow your minds: Elixir will <strong>beat</strong> the performance of Erlang in some cases. We&rsquo;ll get to that later, though.</p>
-
-<figure>
-    <img src="http://i.imgur.com/5XgBpBr.gif"/> <figcaption>
-            <h4>Mind=Blown</h4>
-        </figcaption>
-</figure>
-
-
-<h3 id="metaprogrammability">Metaprogrammability</h3>
-
-<p>I&rsquo;m done arguing: Elixir is <a href="http://c2.com/cgi/wiki?HomoiconicLanguages">strongly homoiconic</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-iex" data-lang="iex">iex&gt; contents = quote do
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Whenever there&rsquo;s a discussion about Elixir, it soon becomes apparent that there&rsquo;s still a lot of confusion regarding it&rsquo;s purpose. Some developers have it in their heads that Elixir is merely some crazy new syntax that ex-Rubyists are using to avoid writing Erlang. Well, I&rsquo;m going to try to dispell some of the myths and misconceptions with this blog post.
+It&rsquo;s not about syntax, stupid silly! In The Excitement of Elixir, I responded to two of the most well-known criticisms of Erlang from real-world developers now that we have Elixir for comparison."><meta name=theme-color content="#ffcd00"><meta property="og:title" content="Elixir: It's Not About Syntax ~ Devin Alexander Torres"><meta property="og:description" content="Whenever there&rsquo;s a discussion about Elixir, it soon becomes apparent that there&rsquo;s still a lot of confusion regarding it&rsquo;s purpose. Some developers have it in their heads that Elixir is merely some crazy new syntax that ex-Rubyists are using to avoid writing Erlang. Well, I&rsquo;m going to try to dispell some of the myths and misconceptions with this blog post.
+It&rsquo;s not about syntax, stupid silly! In The Excitement of Elixir, I responded to two of the most well-known criticisms of Erlang from real-world developers now that we have Elixir for comparison."><meta property="og:url" content="https://devinus.io/elixir-its-not-about-syntax/"><meta property="og:site_name" content="Hacking Devin Torres"><meta property="og:type" content="article"><meta property="og:image" content="https://www.gravatar.com/avatar/178967e940e9793656c0934ddc60db56?s=256"><meta property="article:author" content="https://facebook.com/devin.torres"><meta property="article:publisher" content="727615181"><meta property="article:section" content="post"><meta property="article:tag" content="elixir"><meta property="article:tag" content="erlang"><meta property="article:published_time" content="2013-06-11T00:00:00Z"><meta property="article:modified_time" content="2013-06-11T00:00:00Z"><meta property="fb:app_id" content="366539003801905"><meta property="fb:admins" content="727615181"><meta name=twitter:card content="summary"><meta name=twitter:site content="@devinus"><meta name=twitter:creator content="@devinus"><meta name=generator content="Hugo 0.69.0"><title>Elixir: It's Not About Syntax ~ Devin Alexander Torres</title><link rel=canonical href=https://devinus.io/elixir-its-not-about-syntax/><link rel=icon href=/favicon.ico><link rel=stylesheet href=/assets/css/main.ab98e12b.css><link rel=stylesheet href=/css/custom.css><style>:root{--color-accent:#ffcd00}</style><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-107671549-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script></head><body class="page type-post"><div class=site><a class=screen-reader-text href=#content>Skip to Content</a><div class=main><nav id=main-menu class="menu main-menu" aria-label="Main Menu"><div class=container><ul><li class=item><a href=/>Home</a></li><li class=item><a href=/post>Posts</a></li><li class=item><a href=https://rawcdn.githack.com/devinus/resume/a014d453a3090d84a749010cd41410fe7a6facb4/DevinAlexanderTorres.pdf>Resume</a></li></ul></div></nav><div class=header-widgets><div class=container></div></div><header id=header class="header site-header"><div class="container sep-after"><div class=header-info><p class="site-title title">Hacking Devin Torres</p><p class="desc site-desc">Pseudorandom thoughts from a deterministic mind.</p></div></div></header><main id=content><article lang=en class=entry><header class="header entry-header"><div class="container sep-after"><div class=header-info><h1 class=title>Elixir: It's Not About Syntax</h1></div><div class=entry-meta><span class=posted-on><svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class=screen-reader-text>Posted on</span>
+<time class=entry-date datetime=2013-06-11T00:00:00Z>2013, Jun 11</time></span>
+<span class=byline><svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M21 21V20c0-2.76-4-5-9-5s-9 2.24-9 5v1"/><path d="M16 6.37A4 4 0 1112.63 3 4 4 0 0116 6.37z"/></svg><span class=screen-reader-text>by </span><a href=/authors/devinus>Devin Alexander Torres</a></span>
+<span class=reading-time><svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 15 15"/></svg>9 mins read</span></div></div></header><div class="container entry-content"><p>Whenever there&rsquo;s <a href="https://news.ycombinator.com/item?id=5099861">a discussion</a> about Elixir, it soon becomes apparent that there&rsquo;s still a lot of confusion regarding it&rsquo;s purpose. Some developers have it in their heads that Elixir is merely some crazy new syntax that ex-Rubyists are using to avoid writing Erlang. Well, I&rsquo;m going to try to dispell some of the myths and misconceptions with this blog post.</p><h2 id=its-not-about-syntax-stupid-silly>It&rsquo;s not about syntax, <del>stupid</del> silly!</h2><p>In <a href=http://devintorr.es/blog/2013/01/22/the-excitement-of-elixir/><em>The Excitement of Elixir</em></a>, I responded to two of the most well-known criticisms of Erlang from real-world developers now that we have Elixir for comparison. I failed to drive home what Elixir truly represented. Elixir is not &ldquo;just about syntax,&rdquo; nor is that the only thing Elixir stands for. If Elixir&rsquo;s goals were a pie chart, a friendlier syntax would represent a sliver of what makes Elixir a worthwhile investment.</p><figure><img src=http://i.imgur.com/eEehUnG.png><figcaption><h4>Piecharts</h4></figcaption></figure><h3 id=performance>Performance</h3><p>Let&rsquo;s nip this myth the bud right away: Performance of Elixir code should <strong>match</strong> or <strong>beat</strong> the performance of equivalent Erlang code. If you find that in your use case it doesn&rsquo;t, you should immediately file it as a bug! Elixir, while incredibly expressive, still compiles to what the equivalent Erlang code would be. It&rsquo;s still compiling to <a href=http://joearms.github.io/2013/05/31/a-week-with-elixir.html>EVM</a> bytecode at the end of the day. An Elixir function call is an Erlang function call&ndash;there is no overhead! Elixir&rsquo;s powerful <a href=http://en.wikipedia.org/wiki/Metaprogramming>metaprogramming</a> capabilities don&rsquo;t come from e.g. <a href=http://en.wikipedia.org/wiki/Dynamic_dispatch>runtime dispatching</a>, but the fantastically powerful compiler. All this magic happens at compilation time, before your code even has to run. And this is the part that may blow your minds: Elixir will <strong>beat</strong> the performance of Erlang in some cases. We&rsquo;ll get to that later, though.</p><figure><img src=http://i.imgur.com/5XgBpBr.gif><figcaption><h4>Mind=Blown</h4></figcaption></figure><h3 id=metaprogrammability>Metaprogrammability</h3><p>I&rsquo;m done arguing: Elixir is <a href=http://c2.com/cgi/wiki?HomoiconicLanguages>strongly homoiconic</a>.</p><pre><code class=language-iex data-lang=iex>iex&gt; contents = quote do
 ...&gt;   defmodule HelloWorld do
 ...&gt;     def hello_world do
-...&gt;       IO.puts &#34;Hello world!&#34;
+...&gt;       IO.puts &quot;Hello world!&quot;
 ...&gt;     end
 ...&gt;   end
 ...&gt; end
-{:defmodule,[context: Elixir],[{:__aliases__,[alias: false],[:HelloWorld]},[do: {:def,[context: Elixir],[{:hello_world,[],Elixir},[do: {\{:.,[],[{:__aliases__,[alias: false],[:IO]},:puts]},[],[&#34;Hello world!&#34;]}]]}]]}
+{:defmodule,[context: Elixir],[{:__aliases__,[alias: false],[:HelloWorld]},[do: {:def,[context: Elixir],[{:hello_world,[],Elixir},[do: {\{:.,[],[{:__aliases__,[alias: false],[:IO]},:puts]},[],[&quot;Hello world!&quot;]}]]}]]}
 iex&gt; Code.eval_quoted contents
 {{:module,HelloWorld,&lt;&lt;70,79,82,49,0,0,7,104,66,69,65,77,65,116,111,109,0,0,0,132,0,0,0,13,17,69,108,105,120,105,114,46,72,101,108,108,111,87,111,114,108,100,8,95,95,105,110,102,111,95,...&gt;&gt;,{:hello_world,0}},[]}
 iex&gt; HelloWorld.hello_world
 Hello world!
-:ok</code></pre></div>
-<p>Not only is it homoiconic, but it has one of the most powerful macro system I&rsquo;ve been able to find in among other macro-capable languages I&rsquo;ve used to date. There has been volumes written about the expressiveness and value of macros in Lisps. I don&rsquo;t think I need to reiterate what&rsquo;s already been written on that front, but <a href="http://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt">FUD</a> is nevertheless still disseminated.</p>
-
-<p>A great, simple macro to briefly showcase what they look like would be the <code>match?/2</code> macro from Elixir&rsquo;s <code>Kernel</code> module:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmacro match?(left, right) do
+:ok
+</code></pre><p>Not only is it homoiconic, but it has one of the most powerful macro system I&rsquo;ve been able to find in among other macro-capable languages I&rsquo;ve used to date. There has been volumes written about the expressiveness and value of macros in Lisps. I don&rsquo;t think I need to reiterate what&rsquo;s already been written on that front, but <a href=http://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt>FUD</a> is nevertheless still disseminated.</p><p>A great, simple macro to briefly showcase what they look like would be the <code>match?/2</code> macro from Elixir&rsquo;s <code>Kernel</code> module:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-elixir data-lang=elixir>defmacro match?(left, right) do
   quote do
     case unquote(right) do
-      unquote(left) <span style="color:#f92672">-&gt;</span>
+      unquote(left) <span style=color:#f92672>-&gt;</span>
         true
-      _ <span style="color:#f92672">-&gt;</span>
+      _ <span style=color:#f92672>-&gt;</span>
         false
     end
   end
-end</code></pre></div>
-<p>It&rsquo;s just incredibly easy to reason about what&rsquo;s going on when you see it used in examples:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-iex" data-lang="iex">iex&gt; list = [{:a,1},{:b,2},{:a,3}]
+end
+</code></pre></div><p>It&rsquo;s just incredibly easy to reason about what&rsquo;s going on when you see it used in examples:</p><pre><code class=language-iex data-lang=iex>iex&gt; list = [{:a,1},{:b,2},{:a,3}]
 [a: 1, b: 2, a: 3]
 iex&gt; Enum.filter list, fn (thing) -&gt; match?({:a, _}, thing) end
-[a: 1, a: 3]</code></pre></div>
-<p>Let&rsquo;s just clean that up with some partial application:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-iex" data-lang="iex">iex&gt; Enum.filter list, match?({:a, _}, &amp;1)
-[a: 1, a: 3]</code></pre></div>
-<h4 id="macros-are-scary">Macros are scary</h4>
+[a: 1, a: 3]
+</code></pre><p>Let&rsquo;s just clean that up with some partial application:</p><pre><code class=language-iex data-lang=iex>iex&gt; Enum.filter list, match?({:a, _}, &amp;1)
+[a: 1, a: 3]
+</code></pre><h4 id=macros-are-scary>Macros are scary</h4><p>Yes, they&rsquo;re as scary as they are powerful. However, they&rsquo;re the least kind of scary macros. Elixir macros are <a href=http://en.wikipedia.org/wiki/Hygienic_macro>hygienic</a>. This means that variables defined in a macro won&rsquo;t interfere with variables defined in the local scope when you use the macro. Oh, and guess what? They are optionally unhygienic as well if you&rsquo;re into that kind of thing. Oh, and you don&rsquo;t have to lose line information either.</p><h4 id=butbut-macros-can-be-hard-to-debug-and-can-lead-to-rabbit-holes-of-blah-blah-blah>But&mldr;but macros can be hard to debug and can lead to rabbit holes of <em>blah blah blah</em>&mldr;</h4><p>Yeah, we get it. Macros shouldn&rsquo;t be abused. That&rsquo;s not a fault with the language, but something the user has to strike a balance with themselves. If you <strong>ever</strong> find <a href=https://twitter.com/josevalim>José</a> (the <a href=http://en.wikipedia.org/wiki/Benevolent_Dictator_for_Life>BDFL</a> of Elixir) ever advocating the use of a macro when a simple function would do, I&rsquo;d eat my own shorts.</p><figure><img src=http://i.imgur.com/6A8kxcx.png><figcaption><h4>Spiderman on Responsibility</h4></figcaption></figure><h4 id=okay-but-just-how-metaprogrammable-are-we-talking>Okay, but just how metaprogrammable are we talking?</h4><p>Metaprogrammable enough to do this:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-elixir data-lang=elixir>defmodule <span style=color:#a6e22e>MimeTypes</span> do
+  <span style=color:#a6e22e>HTTPotion</span><span style=color:#f92672>.</span>start
+  <span style=color:#a6e22e>HTTPotion.Response</span>[<span style=color:#e6db74>body</span>: body] <span style=color:#f92672>=</span> <span style=color:#a6e22e>HTTPotion</span><span style=color:#f92672>.</span>get <span style=color:#e6db74>&#34;http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types&#34;</span>
 
-<p>Yes, they&rsquo;re as scary as they are powerful. However, they&rsquo;re the least kind of scary macros. Elixir macros are <a href="http://en.wikipedia.org/wiki/Hygienic_macro">hygienic</a>. This means that variables defined in a macro won&rsquo;t interfere with variables defined in the local scope when you use the macro. Oh, and guess what? They are optionally unhygienic as well if you&rsquo;re into that kind of thing. Oh, and you don&rsquo;t have to lose line information either.</p>
+  <span style=color:#a6e22e>Enum</span><span style=color:#f92672>.</span>each <span style=color:#a6e22e>String</span><span style=color:#f92672>.</span>split(body, <span style=color:#960050;background-color:#1e0010>%</span>r<span style=color:#f92672>/</span><span style=color:#960050;background-color:#1e0010>\</span>n<span style=color:#f92672>/</span>), fn (line) <span style=color:#f92672>-&gt;</span>
+    unless line <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;&#34;</span> or line <span style=color:#f92672>=~</span> <span style=color:#960050;background-color:#1e0010>%</span>r<span style=color:#f92672>/^</span><span style=color:#75715e>#/ do</span>
+      [ mimetype <span style=color:#f92672>|</span> _exts ] <span style=color:#f92672>=</span> <span style=color:#a6e22e>String</span><span style=color:#f92672>.</span>split(line)
 
-<h4 id="but-but-macros-can-be-hard-to-debug-and-can-lead-to-rabbit-holes-of-blah-blah-blah">But&hellip;but macros can be hard to debug and can lead to rabbit holes of <em>blah blah blah</em>&hellip;</h4>
-
-<p>Yeah, we get it. Macros shouldn&rsquo;t be abused. That&rsquo;s not a fault with the language, but something the user has to strike a balance with themselves. If you <strong>ever</strong> find <a href="https://twitter.com/josevalim">José</a> (the <a href="http://en.wikipedia.org/wiki/Benevolent_Dictator_for_Life">BDFL</a> of Elixir) ever advocating the use of a macro when a simple function would do, I&rsquo;d eat my own shorts.</p>
-
-<figure>
-    <img src="http://i.imgur.com/6A8kxcx.png"/> <figcaption>
-            <h4>Spiderman on Responsibility</h4>
-        </figcaption>
-</figure>
-
-
-<h4 id="okay-but-just-how-metaprogrammable-are-we-talking">Okay, but just how metaprogrammable are we talking?</h4>
-
-<p>Metaprogrammable enough to do this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defmodule <span style="color:#a6e22e">MimeTypes</span> do
-  <span style="color:#a6e22e">HTTPotion</span><span style="color:#f92672">.</span>start
-  <span style="color:#a6e22e">HTTPotion.Response</span>[<span style="color:#e6db74">body</span>: body] <span style="color:#f92672">=</span> <span style="color:#a6e22e">HTTPotion</span><span style="color:#f92672">.</span>get <span style="color:#e6db74">&#34;http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types&#34;</span>
-
-  <span style="color:#a6e22e">Enum</span><span style="color:#f92672">.</span>each <span style="color:#a6e22e">String</span><span style="color:#f92672">.</span>split(body, <span style="color:#960050;background-color:#1e0010">%</span>r<span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">\</span>n<span style="color:#f92672">/</span>), fn (line) <span style="color:#f92672">-&gt;</span>
-    unless line <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span> or line <span style="color:#f92672">=~</span> <span style="color:#960050;background-color:#1e0010">%</span>r<span style="color:#f92672">/^</span><span style="color:#75715e">#/ do</span>
-      [ mimetype <span style="color:#f92672">|</span> _exts ] <span style="color:#f92672">=</span> <span style="color:#a6e22e">String</span><span style="color:#f92672">.</span>split(line)
-
-      def is_valid?(unquote(mimetype)), <span style="color:#e6db74">do</span>: true
+      def is_valid?(unquote(mimetype)), <span style=color:#e6db74>do</span>: true
     end
   end
 
-  def is_valid?(_mimetype), <span style="color:#e6db74">do</span>: false
+  def is_valid?(_mimetype), <span style=color:#e6db74>do</span>: false
 end
 
-<span style="color:#a6e22e">MimeTypes</span><span style="color:#f92672">.</span>is_valid?(<span style="color:#e6db74">&#34;application/vnd.exn&#34;</span>) <span style="color:#75715e">#=&gt; false</span>
-<span style="color:#a6e22e">MimeTypes</span><span style="color:#f92672">.</span>is_valid?(<span style="color:#e6db74">&#34;application/json&#34;</span>)    <span style="color:#75715e">#=&gt; true</span></code></pre></div>
-<h5 id="what-just-happened">What just happened?</h5>
-
-<p>We created a module that uses <a href="https://github.com/myfreeweb/httpotion">HTTPotion</a> to download the public domain <a href="http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types">mime.types</a> database from the Apache project, parses it, and creates a polymorphic function called <code>is_valid?</code>. This is exactly how <code>String.Unicode</code> is implemented in Elixir: it reads from an in-repo copy of the <a href="http://www.unicode.org/versions/Unicode6.2.0/">Unicode 6.2.0 database</a> and statically compiles functions based on that database into the module. Extrapolate this power to anything, really. The public domain <a href="http://www.iana.org/time-zones">tzdata</a> database for a timezone module, a <a href="https://dspl.googlecode.com/hg/datasets/google/canonical/currencies.csv">currency database</a> module, SQL query pre-generation, etc. This expressivity makes writing faster code easier, with less <a href="http://en.wikipedia.org/wiki/Source_lines_of_code">LOC</a>.</p>
-
-<figure>
-    <img src="http://i.imgur.com/tXIloPl.png"/> <figcaption>
-            <h4>Slam Dunk</h4>
-        </figcaption>
-</figure>
-
-
-<h2 id="the-standard-library-and-runtime">The standard library and runtime</h2>
-
-<p>The Elixir standard library and runtime is where Elixir is really differentiating itself from Erlang. The Elixir standard library aims to dramatically increase the productivity of Elixir developers, while providing the extensibility and features Elixir developers expect from such a metaprogrammable language. A lot of Elixir newcomers really do themselves a disservice by merely wrapping functions in the Erlang stdlib to get a prettier module name and only adding a level of indirection. If your Elixir modules only wrap Erlang modules without provinding any real benefit, you&rsquo;re doing it wrong. This is why Elixir interfaces to Erlang data types try to improve upon the Erlang interfaces by standardizing a noun-first API, providing enumerable support, enhancing with greater functionality, among many other things.</p>
-
-<h3 id="a-brief-glimse-at-the-standard-library-and-runtime">A brief glimse at the standard library and runtime</h3>
-
-<h4 id="protocols">Protocols</h4>
-
-<p>Inspired by <a href="http://clojure.org/protocols">Clojure protocols</a>, Elixir protocols allow polymorphic interfaces to Elixir data types and user defined records. My favorite protocol is probably the simple <code>EXN.Encoder</code> protocol to represent a subset of Elixir for data representation:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir">defexception <span style="color:#a6e22e">Exn.EncodeError</span>, <span style="color:#e6db74">value</span>: nil do
-  def message(exception), <span style="color:#e6db74">do</span>: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>inspect exception<span style="color:#f92672">.</span>value<span style="color:#e6db74">}</span><span style="color:#e6db74"> cannot be encoded&#34;</span>
+<span style=color:#a6e22e>MimeTypes</span><span style=color:#f92672>.</span>is_valid?(<span style=color:#e6db74>&#34;application/vnd.exn&#34;</span>) <span style=color:#75715e>#=&gt; false</span>
+<span style=color:#a6e22e>MimeTypes</span><span style=color:#f92672>.</span>is_valid?(<span style=color:#e6db74>&#34;application/json&#34;</span>)    <span style=color:#75715e>#=&gt; true</span>
+</code></pre></div><h5 id=what-just-happened>What just happened?</h5><p>We created a module that uses <a href=https://github.com/myfreeweb/httpotion>HTTPotion</a> to download the public domain <a href=http://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types>mime.types</a> database from the Apache project, parses it, and creates a polymorphic function called <code>is_valid?</code>. This is exactly how <code>String.Unicode</code> is implemented in Elixir: it reads from an in-repo copy of the <a href=http://www.unicode.org/versions/Unicode6.2.0/>Unicode 6.2.0 database</a> and statically compiles functions based on that database into the module. Extrapolate this power to anything, really. The public domain <a href=http://www.iana.org/time-zones>tzdata</a> database for a timezone module, a <a href=https://dspl.googlecode.com/hg/datasets/google/canonical/currencies.csv>currency database</a> module, SQL query pre-generation, etc. This expressivity makes writing faster code easier, with less <a href=http://en.wikipedia.org/wiki/Source_lines_of_code>LOC</a>.</p><figure><img src=http://i.imgur.com/tXIloPl.png><figcaption><h4>Slam Dunk</h4></figcaption></figure><h2 id=the-standard-library-and-runtime>The standard library and runtime</h2><p>The Elixir standard library and runtime is where Elixir is really differentiating itself from Erlang. The Elixir standard library aims to dramatically increase the productivity of Elixir developers, while providing the extensibility and features Elixir developers expect from such a metaprogrammable language. A lot of Elixir newcomers really do themselves a disservice by merely wrapping functions in the Erlang stdlib to get a prettier module name and only adding a level of indirection. If your Elixir modules only wrap Erlang modules without provinding any real benefit, you&rsquo;re doing it wrong. This is why Elixir interfaces to Erlang data types try to improve upon the Erlang interfaces by standardizing a noun-first API, providing enumerable support, enhancing with greater functionality, among many other things.</p><h3 id=a-brief-glimse-at-the-standard-library-and-runtime>A brief glimse at the standard library and runtime</h3><h4 id=protocols>Protocols</h4><p>Inspired by <a href=http://clojure.org/protocols>Clojure protocols</a>, Elixir protocols allow polymorphic interfaces to Elixir data types and user defined records. My favorite protocol is probably the simple <code>EXN.Encoder</code> protocol to represent a subset of Elixir for data representation:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-elixir data-lang=elixir>defexception <span style=color:#a6e22e>Exn.EncodeError</span>, <span style=color:#e6db74>value</span>: nil do
+  def message(exception), <span style=color:#e6db74>do</span>: <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>#{</span>inspect exception<span style=color:#f92672>.</span>value<span style=color:#e6db74>}</span><span style=color:#e6db74> cannot be encoded&#34;</span>
 end
 
-defprotocol <span style="color:#a6e22e">Exn.Encoder</span> do
+defprotocol <span style=color:#a6e22e>Exn.Encoder</span> do
   def encode(term)
 end
 
-defimpl <span style="color:#a6e22e">Exn.Encoder</span>, <span style="color:#e6db74">for</span>: [<span style="color:#a6e22e">Atom</span>, <span style="color:#a6e22e">List</span>, <span style="color:#a6e22e">Number</span>, <span style="color:#a6e22e">BitString</span>, <span style="color:#a6e22e">Regex</span>] do
-  def encode(term), <span style="color:#e6db74">do</span>: inspect(term)
+defimpl <span style=color:#a6e22e>Exn.Encoder</span>, <span style=color:#e6db74>for</span>: [<span style=color:#a6e22e>Atom</span>, <span style=color:#a6e22e>List</span>, <span style=color:#a6e22e>Number</span>, <span style=color:#a6e22e>BitString</span>, <span style=color:#a6e22e>Regex</span>] do
+  def encode(term), <span style=color:#e6db74>do</span>: inspect(term)
 end
 
-defimpl <span style="color:#a6e22e">Exn.Encoder</span>, <span style="color:#e6db74">for</span>: <span style="color:#a6e22e">Range</span> do
-  def encode(<span style="color:#a6e22e">Range</span>[<span style="color:#e6db74">first</span>: f, <span style="color:#e6db74">last</span>: l]), <span style="color:#e6db74">do</span>: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span>f<span style="color:#e6db74">}</span><span style="color:#e6db74">..</span><span style="color:#e6db74">#{</span>l<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+defimpl <span style=color:#a6e22e>Exn.Encoder</span>, <span style=color:#e6db74>for</span>: <span style=color:#a6e22e>Range</span> do
+  def encode(<span style=color:#a6e22e>Range</span>[<span style=color:#e6db74>first</span>: f, <span style=color:#e6db74>last</span>: l]), <span style=color:#e6db74>do</span>: <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>#{</span>f<span style=color:#e6db74>}</span><span style=color:#e6db74>..</span><span style=color:#e6db74>#{</span>l<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
 end
 
-defimpl <span style="color:#a6e22e">Exn.Encoder</span>, <span style="color:#e6db74">for</span>: <span style="color:#a6e22e">Tuple</span> do
+defimpl <span style=color:#a6e22e>Exn.Encoder</span>, <span style=color:#e6db74>for</span>: <span style=color:#a6e22e>Tuple</span> do
   def encode(term) do
-    inspect(term, <span style="color:#e6db74">raw</span>: true)
+    inspect(term, <span style=color:#e6db74>raw</span>: true)
   end
 end
 
-defimpl <span style="color:#a6e22e">Exn.Encoder</span>, <span style="color:#e6db74">for</span>: [<span style="color:#a6e22e">PID</span>, <span style="color:#a6e22e">Function</span>, <span style="color:#a6e22e">Reference</span>, <span style="color:#a6e22e">Port</span>] do
-  def encode(term), <span style="color:#e6db74">do</span>: raise <span style="color:#a6e22e">Exn.EncodeError</span>, <span style="color:#e6db74">value</span>: term
-end</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-iex" data-lang="iex">iex&gt; Exn.encode 1..5
-&#34;1..5&#34;
+defimpl <span style=color:#a6e22e>Exn.Encoder</span>, <span style=color:#e6db74>for</span>: [<span style=color:#a6e22e>PID</span>, <span style=color:#a6e22e>Function</span>, <span style=color:#a6e22e>Reference</span>, <span style=color:#a6e22e>Port</span>] do
+  def encode(term), <span style=color:#e6db74>do</span>: raise <span style=color:#a6e22e>Exn.EncodeError</span>, <span style=color:#e6db74>value</span>: term
+end
+</code></pre></div><pre><code class=language-iex data-lang=iex>iex&gt; Exn.encode 1..5
+&quot;1..5&quot;
 iex&gt; Exn.encode %r{.*}
-&#34;%r\&#34;.*\&#34;&#34;</code></pre></div>
-<p>(<a href="https://github.com/yrashk/exn">EXN</a> is a proof of concept answer to <a href="https://github.com/edn-format/edn">edn</a> from the Clojure crowd.)</p>
-
-<h4 id="reducers">Reducers</h4>
-
-<p>The <code>Enumerable</code> protocol is based on reducers (inspired by <a href="http://clojure.com/blog/2012/05/08/reducers-a-library-and-model-for-collection-processing.html">Clojure Reducers</a>), a functional, composable way to enumerate over your collections. Reducers allow for user defined enumerables to implement their own faster enumeration and also allows for lazy and parallel enumerations.</p>
-
-<h4 id="hashdict">HashDict</h4>
-
-<p>Elixir&rsquo;s <code>HashDict</code> is just such a great example of what Elixir&rsquo;s standard library is trying to achieve that I want to mention it. Erlang has several dictionary-like modules for storing key-value pairs, each with their own performance characteristics depending on the size of the data set: <code>dict</code>, <code>orddict</code>, <code>gb_trees</code>. It&rsquo;s up the programmer to profile and choose the best profile guided implementation for the data size they <strong>think</strong> their data set is going to need to remain <a href="https://news.ycombinator.com/item?id=561352">performant</a>. <code>HashDict</code> takes care of that for you automatically. Not only is it faster than the Erlang alternatives in almost any scenario, but <code>HashDict</code> will dynamically scale the underlying storage mechanism to be the fastest possible for the data set it&rsquo;s working with.</p>
-
-<h3 id="unafraid-of-change">Unafraid of change</h3>
-
-<p>The great thing about the Elixir standard library is that with each release it can provide features that Erlang developers clamor for everyday. We have Erlangers, Clojurists, Haskellers, Rubyists, and Pythonistas trying to incorporate useful features into Elixir every day. Elixir isn&rsquo;t afraid of introducing functionality that improves the lives of Elixir developers, and everything is on the table: new data structures, real Unicode support, anything.</p>
-
-<figure>
-    <img src="http://i.imgur.com/HBrTD8G.png"/> <figcaption>
-            <h4>Bruce Lee</h4>
-        </figcaption>
-</figure>
-
-
-<h2 id="tooling">Tooling</h2>
-
-<p>The key to many developer&rsquo;s hearts is tooling, and José understands this. Elixir tries to make tooling a big priority with the tools it provides.</p>
-
-<h3 id="a-slight-peak-at-the-tooling">A slight peak at the tooling</h3>
-
-<h4 id="iex">IEx</h4>
-
-<p>Everything is an expression:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-iex" data-lang="iex">iex&gt; defmodule Foo do
-...&gt;   def bar, do: &#34;bar!&#34;
+&quot;%r\&quot;.*\&quot;&quot;
+</code></pre><p>(<a href=https://github.com/yrashk/exn>EXN</a> is a proof of concept answer to <a href=https://github.com/edn-format/edn>edn</a> from the Clojure crowd.)</p><h4 id=reducers>Reducers</h4><p>The <code>Enumerable</code> protocol is based on reducers (inspired by <a href=http://clojure.com/blog/2012/05/08/reducers-a-library-and-model-for-collection-processing.html>Clojure Reducers</a>), a functional, composable way to enumerate over your collections. Reducers allow for user defined enumerables to implement their own faster enumeration and also allows for lazy and parallel enumerations.</p><h4 id=hashdict>HashDict</h4><p>Elixir&rsquo;s <code>HashDict</code> is just such a great example of what Elixir&rsquo;s standard library is trying to achieve that I want to mention it. Erlang has several dictionary-like modules for storing key-value pairs, each with their own performance characteristics depending on the size of the data set: <code>dict</code>, <code>orddict</code>, <code>gb_trees</code>. It&rsquo;s up the programmer to profile and choose the best profile guided implementation for the data size they <strong>think</strong> their data set is going to need to remain <a href="https://news.ycombinator.com/item?id=561352">performant</a>. <code>HashDict</code> takes care of that for you automatically. Not only is it faster than the Erlang alternatives in almost any scenario, but <code>HashDict</code> will dynamically scale the underlying storage mechanism to be the fastest possible for the data set it&rsquo;s working with.</p><h3 id=unafraid-of-change>Unafraid of change</h3><p>The great thing about the Elixir standard library is that with each release it can provide features that Erlang developers clamor for everyday. We have Erlangers, Clojurists, Haskellers, Rubyists, and Pythonistas trying to incorporate useful features into Elixir every day. Elixir isn&rsquo;t afraid of introducing functionality that improves the lives of Elixir developers, and everything is on the table: new data structures, real Unicode support, anything.</p><figure><img src=http://i.imgur.com/HBrTD8G.png><figcaption><h4>Bruce Lee</h4></figcaption></figure><h2 id=tooling>Tooling</h2><p>The key to many developer&rsquo;s hearts is tooling, and José understands this. Elixir tries to make tooling a big priority with the tools it provides.</p><h3 id=a-slight-peak-at-the-tooling>A slight peak at the tooling</h3><h4 id=iex>IEx</h4><p>Everything is an expression:</p><pre><code class=language-iex data-lang=iex>iex&gt; defmodule Foo do
+...&gt;   def bar, do: &quot;bar!&quot;
 ...&gt; end
 {:module,Foo,&lt;&lt;70,79,82,49,0,0,7,24,66,69,65,77,65,116,111,109,0,0,0,102,0,0,0,11,10,69,108,105,120,105,114,46,70,111,111,8,95,95,105,110,102,111,95,95,4,100,111,99,115,9,...&gt;&gt;,{:bar,0}}
 iex&gt; Foo.bar
-&#34;bar!&#34;</code></pre></div>
-<ul>
-<li>Coloring! (Not pictured here.)</li>
-<li>User defined helpers!</li>
-<li>And more! What more could you ask for?</li>
-</ul>
-
-<h4 id="doctests">Doctests</h4>
-
-<p>Elixir takes inspiration from Python in the form of doctests. Interactive <code>iex</code> sessions are embeddable in Elixir&rsquo;s first-class documentation and runnable from your ExUnit tests with a simple call to <code>doctest</code>.</p>
-
-<p>An example <code>@doc</code> with doctests from the <code>nil?/1</code> macro in the <code>Kernel</code> module:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-elixir" data-lang="elixir"><span style="color:#a6e22e">@doc</span> <span style="color:#e6db74">&#34;&#34;&#34;
-</span><span style="color:#e6db74">Checks if the given argument is nil or not.
-</span><span style="color:#e6db74">Allowed in guard clauses.
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#960050;background-color:#1e0010">##</span><span style="color:#e6db74"> Examples
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">    iex&gt; nil?(1)
-</span><span style="color:#e6db74">    false
-</span><span style="color:#e6db74">    iex&gt; nil?(nil)
-</span><span style="color:#e6db74">    true
-</span><span style="color:#e6db74">
-</span><span style="color:#e6db74">&#34;&#34;&#34;</span></code></pre></div>
-<p>That IEx session is turned into two test cases run with the rest of your tests when you type <code>mix test</code>.</p>
-
-<h4 id="mix">Mix</h4>
-
-<p>A fantastic build (and soon deployment) tool. Inspired by the much beloved <a href="http://leiningen.org/">Leiningen</a> and centered around the notion of <code>Mix.Tasks</code>, Mix is by far the most pleasant answer to tooling I&rsquo;ve worked with other than the awesome Leiningen.</p>
-
-<p>Because I&rsquo;m beginning to get lazy, I&rsquo;ll just do a <code>mix help</code> for you:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-console" data-lang="console">$ mix help
+&quot;bar!&quot;
+</code></pre><ul><li>Coloring! (Not pictured here.)</li><li>User defined helpers!</li><li>And more! What more could you ask for?</li></ul><h4 id=doctests>Doctests</h4><p>Elixir takes inspiration from Python in the form of doctests. Interactive <code>iex</code> sessions are embeddable in Elixir&rsquo;s first-class documentation and runnable from your ExUnit tests with a simple call to <code>doctest</code>.</p><p>An example <code>@doc</code> with doctests from the <code>nil?/1</code> macro in the <code>Kernel</code> module:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-elixir data-lang=elixir><span style=color:#a6e22e>@doc</span> <span style=color:#e6db74>&#34;&#34;&#34;
+</span><span style=color:#e6db74>Checks if the given argument is nil or not.
+</span><span style=color:#e6db74>Allowed in guard clauses.
+</span><span style=color:#e6db74>
+</span><span style=color:#e6db74></span><span style=color:#960050;background-color:#1e0010>##</span><span style=color:#e6db74> Examples
+</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>    iex&gt; nil?(1)
+</span><span style=color:#e6db74>    false
+</span><span style=color:#e6db74>    iex&gt; nil?(nil)
+</span><span style=color:#e6db74>    true
+</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>&#34;&#34;&#34;</span>
+</code></pre></div><p>That IEx session is turned into two test cases run with the rest of your tests when you type <code>mix test</code>.</p><h4 id=mix>Mix</h4><p>A fantastic build (and soon deployment) tool. Inspired by the much beloved <a href=http://leiningen.org/>Leiningen</a> and centered around the notion of <code>Mix.Tasks</code>, Mix is by far the most pleasant answer to tooling I&rsquo;ve worked with other than the awesome Leiningen.</p><p>Because I&rsquo;m beginning to get lazy, I&rsquo;ll just do a <code>mix help</code> for you:</p><pre><code class=language-console data-lang=console>$ mix help
 mix clean           # Clean generated application files
 mix compile         # Compile source files
 mix deps            # List dependencies and their status
@@ -344,195 +114,18 @@ mix local.rebar     # Install rebar locally
 mix local.uninstall # Uninstall local tasks
 mix new             # Creates a new Elixir project
 mix run             # Run the given expression
-mix test            # Run a project&#39;s tests</code></pre></div>
-<figure>
-    <img src="http://i.imgur.com/ESJVaD4.png"/> <figcaption>
-            <h4>Smug Alert</h4>
-        </figcaption>
-</figure>
-
-
-<h2 id="elixir-erlang-clojure-java">Elixir : Erlang :: Clojure : Java</h2>
-
-<p>Elixir isn&rsquo;t the CoffeeScript of Erlang just as Clojure isn&rsquo;t the CoffeeScript of Java. Just like Clojure, Elixir is more than a pretty face. Elixir is the power of it&rsquo;s tooling, the expressiveness of it&rsquo;s metaprogrammability, and the expansive feature set of it&rsquo;s standard library while maintaining complete compatibility with&ndash;and heavily leveraging&ndash;OTP. Once again I have yet to adequately scratch the surface of what makes Elixir special, but I have more Elixir to write!</p>
-
-</div>
-
-  
-<footer class='entry-footer'>
-  <div class='container sep-before'><div class='categories'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
-  
-</svg>
-<span class='screen-reader-text'>Categories: </span><a class='category' href='/categories/languages/'>languages</a></div>
-<div class='tags'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
-  <line x1="7" y1="7" x2="7" y2="7"/>
-  
-</svg>
-<span class='screen-reader-text'>Tags: </span><a class='tag' href='/tags/elixir/'>elixir</a>, <a class='tag' href='/tags/erlang/'>erlang</a></div>
-
-  </div>
-</footer>
-
-
-</article>
-
-<nav class='entry-nav'>
-  <div class='container'><div class='prev-entry sep-before'>
-      <a href='/the-excitement-of-elixir/'>
-        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <line x1="20" y1="12" x2="4" y2="12"/>
-  <polyline points="10 18 4 12 10 6"/>
-  
-</svg>
- Previous</span>
-        <span class='screen-reader-text'>Previous post: </span>The Excitement of Elixir</a>
-    </div></div>
-</nav>
-
-
-<section id='comments' class='comments'>
-  <div class='container sep-before'>
-    <div class='comments-area'><div id='submission-success' class='comment-submission-feedback'>
-  <h4>Thank You!</h4>
-  <span>Your comment has been submitted. It will appear on this page shortly!</span>
-  <a href='#comments' class='button'>OK</a>
-</div>
-
-<div id='submission-failure' class='comment-submission-feedback'>
-  <h4>Yikes, Sorry!</h4>
-  <span>Error occured. Couldn&#39;t submit your comment. Please try again. Thank You!</span>
-  <a href='#comments' class='button'>OK</a>
-</div>
-
-
-
-
-<div id='respond' class='comment-respond'>
-  <h4 class='comment-reply-title'>Leave a comment<small>
-      <a rel='nofollow' id='cancel-comment-reply-link' href='#respond' class='button' style='display:none' aria-label='Cancel comment'>Cancel</a>
-    </small>
-  </h4>
-  <form action='https://api.staticman.net/v2/entry/devinus/devinus.io/master/comments' method='post' id='comment-form' class='comment-form'>
-    <input type='hidden' name='options[postId]' value='2d172a353b8620abf70b1312fe2c96bf'>
-    <input type='hidden' name='options[redirect]' value='https://devinus.io/elixir-its-not-about-syntax/#submission-success'>
-    <input type='hidden' name='options[redirectError]' value='https://devinus.io/elixir-its-not-about-syntax/#submission-failure'>
-
-    <input type='address' name='fields[honeypot]' style='display:none'>
-    <input type='hidden' name='fields[permalink]' value='/elixir-its-not-about-syntax/'>
-    <input type='hidden' name='fields[parent_id]' value=''>
-
-    <div>
-      <label for='comment'>Comment*</label>
-      <textarea id='comment' name='fields[content]' required rows='3'></textarea>
-    </div>
-    <div>
-      <label for='name'>Name*</label>
-      <input id='name' name='fields[author]' type='text' required>
-    </div>
-    <div>
-      <label for='email'>Email*</label>
-      <input id='email' name='fields[email]' type='email' required>
-    </div>
-    <div>
-      <label for='url'>Website</label>
-      <input id='url' name='fields[site]' type='url'>
-    </div>
-    <div>
-      <button type='submit'>Comment!</button>
-    </div>
-  </form>
-</div>
-
-</div>
-  </div>
-</section>
-
-      </main>
-
-      <footer id='footer' class='footer'>
-        <div class='container sep-before'><section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
-    <ul><li>
-        <a href='mailto:d@devinus.io' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Contact via Email</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-  <polyline points="22,6 12,13 2,6"/>
-  
-</svg>
-</a>
-      </li><li>
-        <a href='https://github.com/devinus' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-  
-</svg>
-</a>
-      </li><li>
-        <a href='https://twitter.com/devinus' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
-  
-</svg>
-</a>
-      </li><li>
-        <a href='https://linkedin.com/in/devinus' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-  <rect x="2" y="9" width="4" height="12"/>
-  <circle cx="4" cy="4" r="2"/>
-  
-</svg>
-</a>
-      </li><li>
-        <a href='https://facebook.com/devin.torres' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Facebook account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-  
-</svg>
-</a>
-      </li><li>
-        <a href='https://instagram.com/devinus' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Instagram account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-  <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
-  
-</svg>
-</a>
-      </li><li>
-        <a href='https://www.youtube.com/channel/UCeaXqB8AwZlzzm6Op0rYTBw' target='_blank' rel='noopener'>
-          <span class='screen-reader-text'>Open Youtube account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
-  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
-  
-</svg>
-</a>
-      </li></ul>
-  </nav>
-</section><div class='copyright'>
-  <p> &copy; 1987-2019 Devin Alexander Torres </p>
-</div>
-
-        </div>
-      </footer>
-
-    </div>
-  </div><script>window.__public_path__='\/assets\/js\/'</script>
-
-<script src='/assets/js/main.00df04b7.js'></script><script src='/js/custom.js'></script>
-
-</body>
-
-</html>
-
+mix test            # Run a project's tests
+</code></pre><figure><img src=http://i.imgur.com/ESJVaD4.png><figcaption><h4>Smug Alert</h4></figcaption></figure><h2 id=elixir--erlang--clojure--java>Elixir : Erlang :: Clojure : Java</h2><p>Elixir isn&rsquo;t the CoffeeScript of Erlang just as Clojure isn&rsquo;t the CoffeeScript of Java. Just like Clojure, Elixir is more than a pretty face. Elixir is the power of it&rsquo;s tooling, the expressiveness of it&rsquo;s metaprogrammability, and the expansive feature set of it&rsquo;s standard library while maintaining complete compatibility with&ndash;and heavily leveraging&ndash;OTP. Once again I have yet to adequately scratch the surface of what makes Elixir special, but I have more Elixir to write!</p></div><footer class=entry-footer><div class="container sep-before"><div class=categories><svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5A2 2 0 014 3H9l2 3h9a2 2 0 012 2z"/></svg><span class=screen-reader-text>Categories: </span><a class=category href=/categories/languages/>languages</a></div><div class=tags><svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2H12l8.59 8.59A2 2 0 0120.59 13.41z"/><line x1="7" y1="7" x2="7" y2="7"/></svg><span class=screen-reader-text>Tags: </span><a class=tag href=/tags/elixir/>elixir</a>, <a class=tag href=/tags/erlang/>erlang</a></div></div></footer></article><nav class=entry-nav><div class=container><div class="prev-entry sep-before"><a href=/the-excitement-of-elixir/><span aria-hidden=true><svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><line x1="20" y1="12" x2="4" y2="12"/><polyline points="10 18 4 12 10 6"/></svg>Previous</span>
+<span class=screen-reader-text>Previous post: </span>The Excitement of Elixir</a></div></div></nav><section id=comments class=comments><div class="container sep-before"><div class=comments-area><div id=submission-success class=comment-submission-feedback><h4>Thank You!</h4><span>Your comment has been submitted. It will appear on this page shortly!</span>
+<a href=#comments class=button>OK</a></div><div id=submission-failure class=comment-submission-feedback><h4>Yikes, Sorry!</h4><span>Error occured. Couldn't submit your comment. Please try again. Thank You!</span>
+<a href=#comments class=button>OK</a></div><div id=respond class=comment-respond><h4 class=comment-reply-title>Leave a comment<small>
+<a rel=nofollow id=cancel-comment-reply-link href=#respond class=button style=display:none aria-label="Cancel comment">Cancel</a></small></h4><form action=https://api.staticman.net/v2/entry/devinus/devinus.io/master/comments method=post id=comment-form class=comment-form><input type=hidden name=options[postId] value=2d172a353b8620abf70b1312fe2c96bf>
+<input type=hidden name=options[redirect] value=https://devinus.io/elixir-its-not-about-syntax/#submission-success>
+<input type=hidden name=options[redirectError] value=https://devinus.io/elixir-its-not-about-syntax/#submission-failure>
+<input type=address name=fields[honeypot] style=display:none>
+<input type=hidden name=fields[permalink] value=/elixir-its-not-about-syntax/>
+<input type=hidden name=fields[parent_id]><div><label for=comment>Comment*</label>
+<textarea id=comment name=fields[content] required rows=3></textarea></div><div><label for=name>Name*</label>
+<input id=name name=fields[author] type=text required></div><div><label for=email>Email*</label>
+<input id=email name=fields[email] type=email required></div><div><label for=url>Website</label>
+<input id=url name=fields[site] type=url></div><div><button type=submit id=submitComment>Comment!</button></div></form></div></div></div></section></main><footer id=footer class=footer><div class="container sep-before"><section class="widget widget-social_menu sep-after"><nav aria-label="Social Menu"><ul><li><a href=mailto:d@devinus.io target=_blank rel=noopener><span class=screen-reader-text>Contact via Email</span><svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a></li><li><a href=https://github.com/devinus target=_blank rel=noopener><span class=screen-reader-text>Open Github account in new tab</span><svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77a5.44 5.44.0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a></li><li><a href=https://twitter.com/devinus target=_blank rel=noopener><span class=screen-reader-text>Open Twitter account in new tab</span><svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg></a></li><li><a href=https://linkedin.com/in/devinus target=_blank rel=noopener><span class=screen-reader-text>Open Linkedin account in new tab</span><svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></li><li><a href=https://facebook.com/devin.torres target=_blank rel=noopener><span class=screen-reader-text>Open Facebook account in new tab</span><svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a></li><li><a href=https://instagram.com/devinus target=_blank rel=noopener><span class=screen-reader-text>Open Instagram account in new tab</span><svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg></a></li><li><a href=https://www.youtube.com/channel/UCeaXqB8AwZlzzm6Op0rYTBw target=_blank rel=noopener><span class=screen-reader-text>Open Youtube account in new tab</span><svg class="icon" viewbox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78.0 00-1.94-2C18.88 4 12 4 12 4s-6.88.0-8.6.46a2.78 2.78.0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78.0 003.4 19c1.72.46 8.6.46 8.6.46s6.88.0 8.6-.46a2.78 2.78.0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z" /><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" /></svg></a></li></ul></nav></section><div class=copyright><p>&copy; 1987-2020 Devin Alexander Torres</p></div></div></footer></div></div><script>window.__assets_js_src="/assets/js/"</script><script src=/assets/js/main.c3bcf2df.js></script><script src=/js/custom.js></script></body></html>
